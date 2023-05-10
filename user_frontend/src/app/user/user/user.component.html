@@ -1,0 +1,56 @@
+<div class ="container">
+    <div class = "card">
+        <h3 class="text-center"> Users List</h3>
+        <div class = "card-body">
+            <button style="border: 0;background-color: red;color: white;" (click)="deleteall()">Delete All</button>
+            <table class="table table-striped">
+                <thead>
+                    <th>Id</th>
+                    <th> First Name</th>
+                    <th> Last Name</th>
+                    <th> Email </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let user of users">
+                        <td > {{ user.user_ID}}</td>
+                        <td> {{ user.first_NAME}}</td>
+                        <td> {{ user.last_NAME}}</td>
+                        <td> {{ user.email}}</td>
+                        <td><button (click)="deleteuser(user.user_ID)" style="border: 0; background-color: red;color: white;">Delete</button></td>
+                        <td><button (click)="edituser(user.user_ID, user.first_NAME, user.last_NAME, user.email)" style="border: 0; background-color: orange;color: white;">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+       
+            <div class="form_bg">  
+                <form #regForm='ngForm'  (ngSubmit)="Register(regForm) "> 
+                      
+                     <h2 class="text-center">Registration</h2>  
+                    <br/>  
+                    <div class="form-group">  
+                        <input type="text" class="form-control" placeholder="First Name" name="first_NAME" required ngModel >   
+                    </div>  
+                    <div class="form-group">  
+                        <input type="text" class="form-control"  placeholder="Last Name" name="last_NAME" required ngModel >  
+                    </div>  
+                    <div class="form-group">  
+                        <input type="email" class="form-control" id="email" placeholder="Email" name="email" email required ngModel>
+                        
+      
+                    </div>  
+                     <div class="form-group">  
+                    </div>  
+                    <br/>  
+                    <div class="align-center">  
+                        <button [disabled]="!regForm.valid"   type="submit" class="btn btn-default" id="register" style="border: 0; background-color: green;color: white;" >Add User</button>  
+                    </div>  
+                </form>  
+            </div>  
+
+            
+           
+            
+            
+        </div>
+    </div>
+</div>
